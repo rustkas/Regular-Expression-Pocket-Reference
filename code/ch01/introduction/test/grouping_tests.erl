@@ -20,7 +20,7 @@ reasearch_test() ->
     Text = "\n",
     Regex = "\\012",
     TunedRegex = re_tuner:replace(Regex),
-    {match, Result} = re:run(Text, get_mp(TunedRegex), [{capture, list}]),
+    {match, Result} = re:run(Text, get_mp(TunedRegex), [{capture,first, list}]),
     ?debugFmt("Result = ~p~n", [Result]).
 
 -else.
@@ -82,27 +82,26 @@ conditional_test() ->
     {match, Result} = re:run(Text, get_mp(Regex), [global, {capture, first, list}]),
     ?assertEqual(Expected, Result).
 
-greedy_quantifiers_test()->
+greedy_quantifiers_test() ->
     Expected = [["ababababab"]],
     Text = "ababababab",
     Regex = "(ab)+",
     {match, Result} = re:run(Text, get_mp(Regex), [global, {capture, first, list}]),
     ?assertEqual(Expected, Result).
 
-lazy_quantifiers_test()->
+lazy_quantifiers_test() ->
     Expected = ["an"],
     Text = " banana",
     Regex = "(an)+?",
     {match, Result} = re:run(Text, get_mp(Regex), [{capture, first, list}]),
     ?assertEqual(Expected, Result).
-	
-possessive_quantifiers_test()->
+
+possessive_quantifiers_test() ->
     Expected = nomatch,
     Text = "ababababab",
     Regex = "(ab)++ab",
     Result = re:run(Text, get_mp(Regex), [{capture, first, list}]),
     ?assertEqual(Expected, Result).
-
 
 -endif.
 -endif.

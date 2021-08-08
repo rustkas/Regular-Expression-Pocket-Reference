@@ -29,16 +29,19 @@ unicode_01_test() ->
     Expected = "è",
     Text = " è",
     Regex = "\\w",
-    
-{match, [Result]} = re:run(Text, get_mp(Regex,[unicode,ucp]), [{capture, first, list}]),
+
+    {match, [Result]} =
+        re:run(Text, get_mp(Regex, [unicode, ucp]), [{capture, first, list}]),
     ?assertEqual(Expected, Result).
 
 unicode_02_test() ->
     Expected = "e",
     Text = "e",
     Regex = "\\w",
-    
-{match, [Result]} = re:run(Text, get_mp(Regex,[unicode,ucp]), [{capture, first, list}]),
+
+    {match, [Result]} =
+        re:run(Text, get_mp(Regex, [unicode, ucp]), [{capture, first, list}]),
     ?assertEqual(Expected, Result).
+
 -endif.
 -endif.

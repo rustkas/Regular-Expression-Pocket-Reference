@@ -20,7 +20,7 @@ reasearch_test() ->
     Text = "\n",
     Regex = "\\012",
     TunedRegex = re_tuner:replace(Regex),
-    {match, Result} = re:run(Text, get_mp(TunedRegex), [{capture, list}]),
+    {match, Result} = re:run(Text, get_mp(TunedRegex), [{capture, first, list}]),
     ?debugFmt("Result = ~p~n", [Result]).
 
 -else.

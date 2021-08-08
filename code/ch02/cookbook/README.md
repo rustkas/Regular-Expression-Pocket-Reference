@@ -17,4 +17,15 @@ cookbook
 ## EUnit
 -----
 	$ rebar3 eunit
-	$ rebar3 eunit -m 
+	$ rebar3 eunit -m cookbook_tests
+	$ rebar3 eunit -m numbers_tests
+	$ rebar3 eunit -m valid_html_hex_code_tests
+
+PropEr test
+-----
+    $ rebar3 proper
+
+
+PropEr test (make 10_000 tests)
+-----	
+	$ rebar3 proper -n 10000	
