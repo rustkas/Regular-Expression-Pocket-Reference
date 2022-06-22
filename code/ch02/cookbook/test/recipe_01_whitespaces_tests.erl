@@ -1,6 +1,11 @@
 % For research For research mode, activate the RESEARCH constant.
 %
--module(cookbook_tests).
+% Removing leading and trailing whitespace
+% s/^\s+//
+% s/\s+$//
+%
+
+-module(recipe_01_whitespaces_tests).
 
 %-define(RESEARCH, true).
 

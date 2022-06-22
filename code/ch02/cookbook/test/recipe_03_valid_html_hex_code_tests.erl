@@ -8,7 +8,7 @@
 %
 % For research For research mode, activate the RESEARCH constant.
 %
--module(valid_html_hex_code_tests).
+-module(recipe_02_valid_html_hex_code_tests).
 
 %%
 %% Tests
@@ -54,7 +54,7 @@ numbers({[R1, G1, B1], [R2, G2, B2]}, MP, Options) when G2 < 16#F ->
     HexString = sstr:hex([R1, G1, B1, R2, G2, B2]),
     {match, [Text]} = re:run(HexString, MP, Options),
     print(Text),
-    numbers({[R1, G1, B1], [R1, G2 + 1, 16#F]}, MP, Options);
+    numbers({[R1, G1, B1], [R1, G2 + 1, B2]}, MP, Options);
 numbers({[R1, G1, B1], [R2, G2, B2]}, MP, Options) when R2 < 16#F ->
     HexString = sstr:hex([R1, G1, B1, R2, G2, B2]),
     {match, [Text]} = re:run(HexString, MP, Options),
